@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>User's Cats</h1>
+<ul>
+{% for cat in object_list %}
+    <li>{{ cat.name }} - {{ cat.birthday }}</li>
+{% empty %}
+    <li>No cats yet.</li>
+{% endfor %}
+</ul>
+<p><a href="{% url 'home' %}">back</a> | <a href="{% url 'cat-add' %}">Add new cat</a></p>
+{% endblock content %}

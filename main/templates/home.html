@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to Dogs and cats, choose a option</h1>
+<ul>
+    {% if request.user.is_authenticated %}
+        <li><a href="{% url 'dog-list' %}">My dogs</a></li>
+        <li><a href="{% url 'cat-list' %}">My cats</a></li>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'signup' %}">Register</a></li>
+    {% endif %}
+</ul>
+<div>
+    <h3>RESTFul API</h3>
+    <p><a href="/api/v1/">Dogs and Cats API</a></p>
+</div>
+{% endblock content %}
