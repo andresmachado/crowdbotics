@@ -10,4 +10,7 @@ shell:
 migrations:
 	python manage.py makemigrations
 
-build: migrations migrate run
+install:
+	pip install -r requirements.txt
+
+build: install migrations migrate run
